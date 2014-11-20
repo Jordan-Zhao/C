@@ -1,0 +1,9 @@
+CC=gcc
+AR=$(CC) ar
+EXEC=3-8
+OBJS=3-8.o
+all:$(EXEC) 
+$(EXEC): $(OBJS)
+	$(CC) -o $@ $(OBJS) 
+clean:
+	-rm -f $(EXEC) *.elf *.gdb *.o

@@ -1,0 +1,10 @@
+CC=gcc
+AR=$(CC) ar
+EXEC=3-10
+OBJS=3-10.o
+all:$(EXEC) 
+$(EXEC): $(OBJS)
+	$(CC) -o $@ $(OBJS) 
+clean:
+	-rm -f $(EXEC) *.elf *.gdb *.o
+

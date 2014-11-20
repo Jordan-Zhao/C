@@ -265,4 +265,30 @@ void testFread(){
 		printf("帐号[%d]:%-20s余额[%d]:%d\n",i,s[i].name,i,s[i].pay);
 }
 
+//读取dir目录
+void testOpenDir(){
+	DIR * dir;
+	struct dirent * ptr;
+	int i;
+	dir=opendir("D:/");
+	while((ptr = readdir(dir))!=NULL)
+	{
+		printf("目录: %s\n",ptr->d_name);
+	}
+	closedir(dir);
+}
+
+void testFork(){
+	pid_t pid;
+	long c,i,j;
+	for(i=0;i<5;i++){
+//		pid = fork();	//windows没有fork()函数
+		printf("main process pid:%d \n",pid);
+	}
+	for(j=0;j<3;j++){
+		printf("pid:%d,c:%d \n",pid,c);
+	}
+
+}
+
 

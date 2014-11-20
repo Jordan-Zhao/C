@@ -1,0 +1,11 @@
+CC=gcc              
+objects=2-5-main.o 2-5-fun_sum.o 2-5-fun_avg.o   
+CFLAGS = -WALL -O -g
+2-5:$(objects)
+	$(CC) $(objects) -o 2-5
+2-5-main.o:2-5-main.c chengji.h
+	$(CC) $(CFLAGS) -c  $< -o $@   
+2-5-fun_sum.o:2-5-fun_sum.c
+	$(CC) $(CFLAGS) -c  $< -o $@
+2-5-fun_avg.o:2-5-fun_avg.c
+	$(CC) $(CFLAGS) -c  $< -o $@

@@ -1,0 +1,156 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>optdlg</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>optdlg</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>202</width>
+            <height>138</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>设置</string>
+    </property>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pushButton1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>30</x>
+                <y>110</y>
+                <width>40</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>设置</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>180</width>
+                <height>90</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>端口范围</string>
+        </property>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>textLabel2</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>50</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>开始端口</string>
+            </property>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>textLabel3</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>50</y>
+                    <width>50</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>结束端口</string>
+            </property>
+        </widget>
+        <widget class="QSpinBox">
+            <property name="name">
+                <cstring>start</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>70</x>
+                    <y>20</y>
+                    <width>100</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="maxValue">
+                <number>65535</number>
+            </property>
+        </widget>
+        <widget class="QSpinBox">
+            <property name="name">
+                <cstring>end</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>70</x>
+                    <y>50</y>
+                    <width>100</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="maxValue">
+                <number>65535</number>
+            </property>
+        </widget>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pushButton2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>110</y>
+                <width>40</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>清除</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>pushButton1</sender>
+        <signal>clicked()</signal>
+        <receiver>optdlg</receiver>
+        <slot>set()</slot>
+    </connection>
+    <connection>
+        <sender>pushButton2</sender>
+        <signal>clicked()</signal>
+        <receiver>optdlg</receiver>
+        <slot>zero()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>set()</slot>
+    <slot>zero()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

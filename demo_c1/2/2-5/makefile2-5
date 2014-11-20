@@ -1,0 +1,8 @@
+2-5:2-5-main.o  2-5-fun_sum.o  2-5-fun_avg.o
+	gcc  2-5-main.o  2-5-fun_sum.o  2-5-fun_avg.o  -o  2-5
+2-5.main.o: 2-5-main.c  chengji.h
+	gcc  2-5-main.c  -c
+2-5-fun_sum.o: 2-5-fun_sum.c
+	gcc  2-5-fun_sum.c  -c
+2-5-fun_avg.o: 2-5-fun_avg.c
+	gcc  2-5-fun_avg.c  -c

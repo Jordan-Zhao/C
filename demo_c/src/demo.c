@@ -11,9 +11,7 @@
 #include "myh.h"
 
 int main() {
-	testFwrite();
-	testFread();
-
+//	testFork();
 
 	return 0;
 }

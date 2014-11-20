@@ -1,0 +1,8 @@
+CC=gcc
+objects=2-6-main.o  2-6-fun_shuiji.o
+2-6:$(objects)
+	$(CC) $(objects) -o 2-6
+2-6-main.o: 2-6-main.c  shuiji.h
+	gcc  2-6-main.c  -c
+2-6-fun_shuiji.o: 2-6-fun_shuiji.c
+	gcc  2-6-fun_shuiji.c  -c

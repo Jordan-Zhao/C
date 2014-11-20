@@ -1,0 +1,7 @@
+2-4:2-4-main.o 2-4-max.o
+	gcc 2-4-main.o 2-4-max.o -o 2-4
+2-4-main.o:2-4-main.c max.h
+	gcc 2-4-main.c -c
+2-4-max.o:2-4-max.c 
+	gcc 2-4-max.c -c
+
