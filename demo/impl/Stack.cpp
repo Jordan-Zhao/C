@@ -43,8 +43,8 @@ void testStack() {
 		stack->init(100);
 		stack->push(108);
 		stack->push(200);
-		printf("%d \n", stack->pop());
-		printf("%d \n", stack->pop());
+		//printf("%d \n", stack->pop());
+		//printf("%d \n", stack->pop());
 		stack->clean();
 	} catch (exception e) {
 		cout << e.what();

@@ -17,7 +17,7 @@ using namespace std;
 
 int main() {
 	const People* p1 = new People();
-//	p1->age = 100;	//±àÒë±¨´í£ºassignment of member 'People::age' in read-only object
-//	People p2 = p1;	//±àÒë±¨´í£ºconversion from 'const People*' to non-scalar type 'People' requested
+//	p1->age = 100;	//ï¿½ï¿½ï¿½ë±¨ï¿½ï¿½assignment of member 'People::age' in read-only object
+//	People p2 = p1;	//ï¿½ï¿½ï¿½ë±¨ï¿½ï¿½conversion from 'const People*' to non-scalar type 'People' requested
 	cout << p1->age<<endl;
 }
