@@ -11,7 +11,7 @@
 #include "myh.h"
 
 int main() {
-//	testFork();
+	testMysql();
 
 	return 0;
 }

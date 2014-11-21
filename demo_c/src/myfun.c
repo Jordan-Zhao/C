@@ -138,6 +138,7 @@ char *say1(char *r, char *ws) {
 }
 
 void test() {
+
 	int a;
 	scanf("a=%d", &a);
 	printf("%d", ++a);
@@ -147,7 +148,7 @@ void testMysql() {
 	MYSQL mysql, *sock;   //声明MySQL的句柄
 	const char * host = "127.0.0.1";  //因为是作为本机测试，所以填写的是本地IP
 	const char * user = "root";       //这里改为你的用户名，即连接MySQL的用户名
-	const char * passwd = ""; //这里改为你的用户密码
+	const char * passwd = "root"; //这里改为你的用户密码
 	const char * db = "test";      //这里改为你要连接的数据库的名字
 	unsigned int port = 3306;           //这是MySQL的服务器的端口，如果你没有修改过的话就是3306。
 	const char * unix_socket = NULL; //unix_socket这是unix下的，我在Windows下，所以就把它设置为NULL

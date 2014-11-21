@@ -15,8 +15,7 @@
 #include <stdarg.h>
 #include <signal.h>
 #include <time.h>
-#include <winsock2.h> //mysql通信使用的头文件
-#include <mysql.h>  //引入mysql库
+#include <mysql/mysql.h>  //引入mysql库
 
 #include <dirent.h>
 
