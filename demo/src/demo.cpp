@@ -11,13 +11,21 @@
 #include <stdlib.h>
 
 #include "../head/Main.h"
-#include "../impl/People.h"
+#include "../class/People.h"
+#include "../class/House.h"
+#include "../class/Class1.h"
+#include "../class/Class2.h"
+#include "../class/Class3.h"
 
 using namespace std;
+using namespace myclass;
 
 int main() {
-	const People* p1 = new People();
-//	p1->age = 100;	//���뱨��assignment of member 'People::age' in read-only object
-//	People p2 = p1;	//���뱨��conversion from 'const People*' to non-scalar type 'People' requested
-	cout << p1->age<<endl;
+	Class2 c1;
+	Class2 *c2 = new Class2();
+	c1.setA(1);
+	cout<<c1.getA()<<endl;
+	Class2 c3 = c2->f(c1);
+	cout<<c3.getA()<<endl;
+
 }
