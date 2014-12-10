@@ -11,7 +11,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-#include <stdexcept>s
+#include <stdexcept>
 
 #include "email/head/Util.h"
 #include "email/head/EmailManage.h"
