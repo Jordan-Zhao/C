@@ -15,7 +15,7 @@ public:
 	EmailSender();
 	virtual ~EmailSender();
 
-	virtual void sendMsg(char* toAddr, char* content) = 0;
+	virtual void sendMsg(char* toAddr,char* subject, char* content) = 0;
 };
 
 } /* namespace ns_email */

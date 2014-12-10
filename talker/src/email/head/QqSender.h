@@ -21,6 +21,12 @@
 namespace ns_email {
 
 class QqSender : public EmailSender {
+public:
+	QqSender(char* username, char* pwd);
+	~QqSender();
+
+	void sendMsg(char* toAddr,char* subject, char* content);
+
 private:
 	Util* util;
 	char *host = "qq.com";
@@ -42,11 +48,6 @@ private:
 	void sendSocketMsg(int sock, char* msg);
 	int receiveSocketMsg(int sock, char* buf);
 
-public:
-	QqSender(char* username, char* pwd);
-	~QqSender();
-
-	void sendMsg(char* toAddr, char* content);
 };
 
 } /* namespace ns_email */

@@ -24,6 +24,11 @@ public:
 	char*  decodeBase64(char* s);
 
 	char* stringCat(char* s1,char* s2);
+	char* strSub(char* from, char* start, char* end);
+	char* num2str(int n);
+	int str2num(char* str);
+
+	char* trim(char* str);
 };
 
 } /* namespace ns_email */

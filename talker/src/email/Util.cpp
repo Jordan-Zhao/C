@@ -8,6 +8,7 @@
 #include "head/Util.h"
 
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 namespace ns_email {
@@ -72,6 +73,7 @@ char* Util::encodeBase64(char* s) {
 	return const_cast<char*>(pszEncode.data());
 }
 char*  Util::decodeBase64(char* s) {
+	s = trim(s);
 	int nByteSrc = strlen(s);
 	std::string pszSource = s;
 
@@ -145,5 +147,54 @@ char* Util::stringCat(char* s1,char* s2){
 	strcpy(s,s1);
 	strcat(s,s2);
 	return s;
+}
+
+char* Util::strSub(char* from, char* start, char* end){
+	const char* s1 = strstr(from,start);
+	const char* s2 = strstr(s1,end);
+	int len = strlen(s1)-strlen(s2)-strlen(start);
+	if(len < 0){
+		return NULL;
+	}
+	char* s3 = new char[len];
+	memcpy(s3,s1+strlen(start),len);
+	return s3;
+}
+
+char* Util:: num2str(int n){
+	char* str;
+	sprintf(str,"%d",n);
+	return str;
+}
+int Util::str2num(char* str){
+	int i;
+	sscanf(str,"%d",&i);
+	return i;
+}
+
+char* Util::trim(char* str)
+{
+	std::string s = str;
+    if (s.empty())
+    {
+        return const_cast<char*>(s.data());
+    }
+    while(s.find_first_not_of(" ") > 0
+    		|| s.find_last_not_of(" ") < s.length() - 1
+    		|| s.find_first_not_of("\r") > 0
+    		|| s.find_last_not_of("\r") < s.length() - 1
+    		|| s.find_first_not_of("\n") > 0
+    		|| s.find_last_not_of("\n") < s.length() - 1){
+		s.erase(0,s.find_first_not_of(" "));
+		s.erase(s.find_last_not_of(" ") + 1);
+
+		s.erase(0,s.find_first_not_of("\r"));
+		s.erase(s.find_last_not_of("\r") + 1);
+
+		s.erase(0,s.find_first_not_of("\n"));
+		s.erase(s.find_last_not_of("\n") + 1);
+    }
+    char* to = new char[s.length()];
+    return strcpy(to,s.data());
 }
 } /* namespace ns_email */
