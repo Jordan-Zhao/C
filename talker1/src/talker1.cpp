@@ -14,33 +14,67 @@
 #include "comps/email/QqSender.h"
 #include "interface/Receiver.h"
 #include "comps/email/E126Receiver.h"
+#include <exception>
 
 using namespace std;
 using namespace ns_talker;
 
 int main() {
+	cout<<"请输入你的名称"<<endl;
 	User me;
-	me.setId("Jack");
-	User other;
-	other.setId("Marry");
-	Message msg;
-	msg.setContent("wwwwwwww");
+	string myName;
+	cin>>myName;
+	me.setId(myName);
 
+	cout<<"请输入对方的名称"<<endl;
+	User other;
+	string otherName;
+	cin>>otherName;
+	other.setId(otherName);
+
+	//初始化sender
 	Sender* sender = new QqSender();
 	sender->init(me,other);
-	for(int i=0;i<1;i++){
-		sender->send(msg);
+
+	//初始化receiver
+	Receiver* receiver = new E126Receiver();
+	receiver->init(me);
+
+	//接收未读消息
+	Message msg = receiver->receive();
+	if(msg.getContent().size() > 0){
+		cout<<msg.getFromUserId()<<" 说："<<msg.getContent()<<endl;
 	}
 
-	sleep(10);
+	while(true){
+		cout<<"我说(输入exit退出)："<<endl;
+		string words;
+		cin>>words;
 
-	Receiver* receiver = new E126Receiver();
-	receiver->init(other);
-	Message m = receiver->receive();
+		if(words == "exit"){
+			Message msg;
+			msg.setContent("我下线了，byebye~");
+			sender->send(msg);
+			exit(0);
+		}
 
-//	cout<<"++++++++++++++\n"<<m.getContent()<<endl;
+		//发送消息
+		Message msg;
+		msg.setContent(words);
+		sender->send(msg);
 
-//	cout<<Util::Base64Encode(string("465824789@qq.com\r\n"))<<endl;
-
+		while(true){
+			sleep(3);
+			try{
+				Message msg = receiver->receive();
+				if(msg.getContent().size() > 0){
+					cout<<msg.getFromUserId()<<" 说："<<msg.getContent()<<endl;
+					break;
+				}
+			}catch (exception e) {
+//				cout<<e.what()<<endl;
+			}
+		}
+	}
 	return 0;
 }

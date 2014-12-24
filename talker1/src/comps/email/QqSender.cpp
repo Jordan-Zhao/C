@@ -50,7 +50,7 @@ void QqSender::send(Message& msg) {
 		std::cerr << "qq sender 连接服务器失败！" << std::endl;
 	}
 	Util::receiveSocketMsg(sock,receiveBuf);
-	std::cout << "qq sender 连接服务器成功。服务器返回：" << receiveBuf << std::endl;
+//	std::cout << "qq sender 连接服务器成功。服务器返回：" << receiveBuf << std::endl;
 //	free(&server);
 //	delete hp;
 
@@ -59,39 +59,39 @@ void QqSender::send(Message& msg) {
 	Util::sendSocketMessage(sock,string("EHLO 465824789@qq.com"));
 	Util::sendSocketMessage(sock,string("\r\n"));
 	Util::receiveSocketMsg(sock,receiveBuf);
-	std::cout << "qq sender 发送hello信息。服务器返回 :" << receiveBuf << std::endl;
+//	std::cout << "qq sender 发送hello信息。服务器返回 :" << receiveBuf << std::endl;
 
 	/*发送 auth login 指令，告诉服务器要登录邮箱*/
 	Util::sendSocketMessage(sock, string("auth login\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender 发送登陆指令。服务器返回 :" << receiveBuf << std::endl;
+//	std::cout << "qq sender 发送登陆指令。服务器返回 :" << receiveBuf << std::endl;
 
 	/*这个用户名是经过了base64编码的，smtp也支持明文传送*/
-	Util::sendSocketMessage(sock, Util::Base64Encode(string("465824789@qq.com")));
+	Util::sendSocketMessage(sock, string("NDY1ODI0Nzg5QHFxLmNvbQ=="));
 	Util::sendSocketMessage(sock, string("\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender发送登录用户名。服务器返回 :" << receiveBuf << std::endl;
+//	std::cout << "qq sender发送登录用户名。服务器返回 :" << receiveBuf << std::endl;
 
 	/*用户名发过去后接着就是用户密码了，当然也是经过base64编码后的*/
-	Util::sendSocketMessage(sock, Util::Base64Encode(string("zjd861001")));
+	Util::sendSocketMessage(sock, string("empkODYxMDAx"));
 	Util::sendSocketMessage(sock, string("\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender发送登录密码。服务器返回 :" << receiveBuf<< std::endl;
+//	std::cout << "qq sender发送登录密码。服务器返回 :" << receiveBuf<< std::endl;
 
 	/*发送 mail from 指令，相当于填写发件人*/
 	Util::sendSocketMessage(sock, string("mail from <465824789@qq.com>\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender发送 发件人 信息。服务器返回 :" << receiveBuf << std::endl;
+//	std::cout << "qq sender发送 发件人 信息。服务器返回 :" << receiveBuf << std::endl;
 
 	/*发送 rcpt to 指令，就是填写收件人了 */
 	Util::sendSocketMessage(sock, string("rcpt to <jindongzhao@126.com>\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender 发送 收件人 信息。服务器返回：" << receiveBuf << std::endl;
+//	std::cout << "qq sender 发送 收件人 信息。服务器返回：" << receiveBuf << std::endl;
 
 	/*发送data,标志着后面开始发送邮件的主题部分*/
 	Util::sendSocketMessage(sock, string("data\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	 std::cout << "qq sender 发送data命令，准备发送邮件主体。服务器返回:" << receiveBuf << std::endl;
+//	 std::cout << "qq sender 发送data命令，准备发送邮件主体。服务器返回:" << receiveBuf << std::endl;
 
 	/*发送邮件主体部分，先是邮件主题（subject）,后面是邮件内容。*/
 	Util::sendSocketMessage(sock, string( "subject:"));
@@ -100,11 +100,11 @@ void QqSender::send(Message& msg) {
 	Util::sendSocketMessage(sock, ">>>>>>>>>>"+msg.getContent()+"<<<<<<<<<<");
 	Util::sendSocketMessage(sock, string("\r\n.\r\n"));		//必须是这种格式，否则无法收到邮件
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender 发送邮件主体。服务器返回:" << receiveBuf << std::endl;
+//	std::cout << "qq sender 发送邮件主体。服务器返回:" << receiveBuf << std::endl;
 
 	//退出
 	Util::sendSocketMessage(sock, string("quit\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
-	std::cout << "qq sender 退出邮件回话。服务器返回 :" << receiveBuf << std::endl;
+//	std::cout << "qq sender 退出邮件回话。服务器返回 :" << receiveBuf << std::endl;
 }
 } /* namespace ns_talker */

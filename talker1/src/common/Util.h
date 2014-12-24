@@ -29,6 +29,8 @@ public:
 	static string Base64Decode(string input) ;
 
 	static string subStr(string source,string begin,string end);
+
+	static string itoa(int i);
 };
 
 

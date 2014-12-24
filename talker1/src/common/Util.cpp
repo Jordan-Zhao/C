@@ -160,4 +160,10 @@ string Util::subStr(string source,string begin,string end){
 	}
 }
 
+string Util::itoa(int i){
+	char cs[20];
+	sprintf(cs,"%d",i);
+	return string(cs);
+}
+
 } /* namespace ns_talker */

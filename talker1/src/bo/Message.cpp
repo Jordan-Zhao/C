@@ -15,6 +15,8 @@ Message::Message() { }
 
 Message::~Message() {
 //	delete content.data();
+//	delete fromUser;
+//	delete toUser;
 }
 
 string Message::getContent(){
@@ -23,6 +25,22 @@ string Message::getContent(){
 
 void Message::setContent(string ctn){
 	content = ctn;
+}
+
+string Message::getFromUserId(){
+	return fromUserId;
+}
+
+void Message::setFromUserId(string userId){
+	fromUserId = userId;
+}
+
+string Message::getToUserId(){
+	return toUserId;
+}
+
+void Message::setToUserId(string userId){
+	toUserId = userId;
 }
 
 } /* namespace ns_talker */
