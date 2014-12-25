@@ -63,6 +63,7 @@ int main() {
 		msg.setContent(words);
 		sender->send(msg);
 
+		cout<<"【消息已发送，等待对方回应...】"<<endl;
 		while(true){
 			sleep(3);
 			try{
@@ -72,7 +73,7 @@ int main() {
 					break;
 				}
 			}catch (exception e) {
-//				cout<<e.what()<<endl;
+				cout<<e.what()<<endl;
 			}
 		}
 	}

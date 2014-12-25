@@ -156,7 +156,7 @@ string Util::subStr(string source,string begin,string end){
 	if( e-b > begin.size()){
 		return source.substr(b+begin.size(),e-b-begin.size());
 	}else{
-		return NULL;
+		return string();
 	}
 }
 
