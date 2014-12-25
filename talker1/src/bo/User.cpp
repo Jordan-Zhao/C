@@ -14,7 +14,7 @@ namespace ns_talker {
 User::User() { }
 
 User::~User() {
-//	delete id.data();
+//	cout<<"xigou user"<<endl;
 }
 
 string User::getId(){

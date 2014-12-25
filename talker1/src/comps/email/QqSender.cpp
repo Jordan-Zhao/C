@@ -19,8 +19,17 @@ QqSender::QqSender() {
 }
 
 QqSender::~QqSender() {
-	delete me;
-	delete other;
+//	cout<<"xi gou qq sender."<<endl;
+	/*
+	 * 无需回收me和other所指向的对象，因为这两个对象是从程序外面传进来的，外层程序会负责回收。
+	 * 但是如果me和other是以User me这种形式声明的话，则在new qqsender()时就会自动构造me和other对象，
+	 * 而delete qqsender时也会自动回收me和other，所以也不需要手动delete me和other。
+	 * 所以：1、类的实例变量是指针时，指针所指向的对象由创建此对象的程序负责回收，类的析构函数无需负责回收。
+	 *2、类的实例变量是类型时，创建类实例时会自动创建此实例变量对象，析构类实例时会自动析构此实例变量对象。
+	 *
+	 */
+//	delete me;
+//	delete other;
 }
 
 void QqSender::init(User& me, User& other) {

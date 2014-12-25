@@ -55,7 +55,9 @@ int main() {
 			Message msg;
 			msg.setContent("我下线了，byebye~");
 			sender->send(msg);
-			exit(0);
+			delete sender;		//回收sender对象
+			delete receiver;	//回收receiver对象
+			return 0;	//自然结束，如果用exit则不会调用user的析构函数
 		}
 
 		//发送消息

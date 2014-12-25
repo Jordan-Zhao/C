@@ -19,7 +19,7 @@ E126Receiver::E126Receiver() {
 }
 
 E126Receiver::~E126Receiver() {
-	delete me;
+//	cout<<"xi gou receiver."<<endl;
 }
 
 void E126Receiver::init(User& me) {
