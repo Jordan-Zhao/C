@@ -10,7 +10,7 @@
 
 #include "myh.h"
 
-int main() {
+int main1() {
 	testMysql();
 
 	return 0;

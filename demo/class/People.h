@@ -1,7 +1,7 @@
 /*
  * People.h
  *
- *  Created on: 2014Äê11ÔÂ13ÈÕ
+ *  Created on: 2014ï¿½ï¿½11ï¿½ï¿½13ï¿½ï¿½
  *      Author: jindong.zjd
  */
 
