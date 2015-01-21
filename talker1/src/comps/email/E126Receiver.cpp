@@ -59,7 +59,7 @@ Message E126Receiver::receive() {
 //	std::cout << "e126 receiver发送登录用户名。服务器返回:" <<receiveBuf << std::endl;
 
 	//发送密码
-	Util::sendSocketMessage(sock,string("pass ")+string(Util::Base64Decode(string("empkODYxMDAx")))+string("\r\n"));//邮箱地址
+	Util::sendSocketMessage(sock,string("pass ")+string(Util::Base64Decode(string("emhhbmdqdW4=")))+string("\r\n"));
 	Util::receiveSocketMsg(sock, receiveBuf);
 //	std::cout << "e126 receiver发送登录密码。服务器返回:" <<receiveBuf << std::endl;
 
