@@ -28,8 +28,7 @@ void customFunc(const char* sz)
 int main()
 {
 	log4cplus::CustomAppender::setCustomFunc(customFunc);
-	string propUrl = "/home/zjd/dev/ide/eclipse-cpp/workspace/log4cplus/demos/urconfig.properties";
-	log4cplus::PropertyConfigurator::doConfigure(propUrl);
+	log4cplus::PropertyConfigurator::doConfigure("urconfig.properties");
 	LogLog::getLogLog()->setInternalDebugging(true);
 
 	for (int i = 0; i < 3; i++)
